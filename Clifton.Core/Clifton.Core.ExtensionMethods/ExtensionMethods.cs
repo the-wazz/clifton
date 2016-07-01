@@ -1140,6 +1140,13 @@ namespace Clifton.Core.ExtensionMethods
 
 		}
 
+	        /// <summary>
+	        /// Converts the first letter of the given string to uppercase and the rest 
+	        /// of the string to lowercase. [Currently used as a utility for the method 
+	        /// PascalCaseWords().]
+	        /// </summary>
+	        /// <param name="src"></param>
+	        /// <returns>string</returns>
 		public static string PascalCase(this string src)
 		{
 			string ret = String.Empty;
@@ -1153,10 +1160,12 @@ namespace Clifton.Core.ExtensionMethods
 		}
 
 		/// <summary>
-		/// Returns a Pascal-cased string, given a string with words separated by spaces.
-		/// </summary>
+	        /// Returns a Pascal-cased string, i.e. the first letter of each word is in 
+	        /// uppercase, including the first word. The string is otherwise unchanged; 
+	        /// spaces and punctuation are preserved.
+	        /// </summary>
 		/// <param name="src"></param>
-		/// <returns></returns>
+		/// <returns>string</returns>
 		public static string PascalCaseWords(this string src)
 		{
 			StringBuilder sb = new StringBuilder();
