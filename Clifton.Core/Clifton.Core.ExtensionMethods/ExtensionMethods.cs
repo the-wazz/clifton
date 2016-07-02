@@ -1140,6 +1140,13 @@ namespace Clifton.Core.ExtensionMethods
 
 		}
 
+		/// <summary>
+	        /// Converts the first letter of the given string to uppercase and the rest 
+	        /// of the string to lowercase. [Currently used as a utility for the method 
+	        /// PascalCaseWords().]
+	        /// </summary>
+	        /// <param name="src"></param>
+	        /// <returns>string</returns>
 		public static string PascalCase(this string src)
 		{
 			string ret = String.Empty;
@@ -1152,11 +1159,13 @@ namespace Clifton.Core.ExtensionMethods
 			return ret;
 		}
 
-		/// <summary>
-		/// Returns a Pascal-cased string, given a string with words separated by spaces.
-		/// </summary>
-		/// <param name="src"></param>
-		/// <returns></returns>
+	        /// <summary>
+	        /// Returns a Pascal-cased string, i.e. the first letter of each word is in 
+	        /// uppercase, including the first word. The string is otherwise unchanged; 
+	        /// spaces and punctuation are preserved.
+	        /// </summary>
+	        /// <param name="src"></param>
+	        /// <returns>string</returns>
 		public static string PascalCaseWords(this string src)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -1173,11 +1182,34 @@ namespace Clifton.Core.ExtensionMethods
 			return sb.ToString();
 		}
 
+		/// <summary>
+	        /// Returns true or false as to whether the first argument is greater
+	        /// than or equal to the second argument, and less than or equal to
+	        /// the third argument.
+	        /// </summary>
+	        /// <remarks>
+	        /// The name of this method is a bit misleading. It doesn't test only for
+	        /// 'between'.
+	        /// </remarks>
+	        /// <param name="b">The integer to test.</param>
+	        /// <param name="a">The integer that should be less than or equal to the test.</param>
+	        /// <param name="c">The integer that should be greater than or equal to the test.</param>
+	        /// <returns>bool</returns>
 		public static bool Between(this int b, int a, int c)
 		{
 			return b >= a && b <= c;
 		}
 
+	        /// <summary>
+	        /// Checks that an integer is not greater than a certain value (the max)
+	        /// and changes it if it is. If the integer (the first argument) is greater 
+	        /// than the maximum allowable (the second argument), it is changed to 
+	        /// equal the maximum allowable, then returned. If the first argument is 
+	        /// less than or equal to the second argument, it is returned unchanged.
+	        /// </summary>
+	        /// <param name="a"></param>
+	        /// <param name="max"></param>
+	        /// <returns>int</returns>
 		public static int Max(this int a, int max)
 		{
 			if (a > max)
@@ -1188,6 +1220,16 @@ namespace Clifton.Core.ExtensionMethods
 			return a;
 		}
 
+	        /// <summary>
+	        /// Checks that an integer is not less than a certain value (the min)
+	        /// and changes it if it is. If the integer (the first argument) is less 
+	        /// than the minimum allowable (the second argument), it is changed to 
+	        /// equal the minimum allowable, then returned. If the first argument is 
+	        /// greater than or equal to the second argument, it is returned unchanged.
+	        /// </summary>
+	        /// <param name="a"></param>
+	        /// <param name="min"></param>
+	        /// <returns></returns>
 		public static int Min(this int a, int min)
 		{
 			if (a < min)
